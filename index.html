@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    Assignment 1: The HTML Pizza Company — Order Form
+    Author: Mohammad Ali Bokhari
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The HTML Pizza Company</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background:#f3f3f3; }
+    header, footer { background:#333; color:white; padding:12px; }
+    main { background:white; max-width:900px; margin:16px auto; padding:16px; border:1px solid #ddd; }
+    h1, h2 { margin-top:0; }
+    fieldset { margin-bottom:16px; }
+    label { display:block; margin:8px 0 4px; font-weight:bold; }
+    input[type="text"], input[type="tel"], input[type="email"], input[type="date"], input[type="time"], input[type="number"], select, textarea {
+      width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;
+    }
+    textarea { min-height:90px; }
+    .inline { display:inline-block; margin-right:12px; }
+    .hint { color:#555; font-size:0.9rem; }
+    .muted { color:#666; font-weight:normal; }
+    .actions { margin-top:12px; }
+    input[type="submit"], input[type="reset"] { padding:8px 12px; margin-right:8px; }
+    img { max-width:100%; height:auto; border:1px solid #ddd; border-radius:6px; margin:8px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>The HTML Pizza Company</h1>
+    <p>Full menu order form</p>
+  </header>
+
+  <main>
+    <h2>Order Form</h2>
+
+    <form action="#" method="get">
+
+      <!-- Customer info -->
+      <fieldset>
+        <legend>Customer Information</legend>
+        <label for="custName">Full Name</label>
+        <input id="custName" name="name" type="text" required />
+
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" required />
+        <div class="hint">We will call if we have questions about your order.</div>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" />
+
+        <label for="orderDate">Order Date</label>
+        <input id="orderDate" name="order_date" type="date" />
+
+        <label for="orderTime">Preferred Time</label>
+        <input id="orderTime" name="order_time" type="time" />
+      </fieldset>
+
+      <!-- Order type -->
+      <fieldset>
+        <legend>Order Type</legend>
+        <label class="inline"><input type="radio" name="order_type" value="takeout" required> Take-out</label>
+        <label class="inline"><input type="radio" name="order_type" value="delivery"> Delivery</label>
+        <label class="inline"><input type="radio" name="order_type" value="eat-in"> Eat-in</label>
+
+        <label for="address">Delivery Address (only if delivery)</label>
+        <textarea id="address" name="address" placeholder="Street, City, Postal Code"></textarea>
+      </fieldset>
+
+      <!-- Pizza basics -->
+      <fieldset>
+        <legend>Pizza Basics <span class="muted">(base price by size)</span></legend>
+        <label for="count">Number of Pizzas</label>
+        <input id="count" name="count" type="number" min="1" max="20" value="1" required />
+
+        <label for="size">Size (by slices)</label>
+        <select id="size" name="size" required>
+          <option value="">-- Select --</option>
+          <option value="4">Personal (4 slices) — $7.99</option>
+          <option value="6">Small (6 slices) — $10.99</option>
+          <option value="8">Medium (8 slices) — $13.99</option>
+          <option value="10">Large (10 slices) — $16.99</option>
+          <option value="12">XL (12 slices) — $19.99</option>
+        </select>
+
+        <p><strong>Shape:</strong></p>
+        <label class="inline"><input type="radio" name="shape" value="round" required> Round</label>
+        <label class="inline"><input type="radio" name="shape" value="square"> Square</label>
+
+        <p><strong>Crust <span class="muted">(surcharge)</span>:</strong></p>
+        <label class="inline"><input type="radio" name="crust" value="thin" required> Thin Crust — $0.00</label>
+        <label class="inline"><input type="radio" name="crust" value="handcrafted"> Handcrafted Crust — $1.00</label>
+        <label class="inline"><input type="radio" name="crust" value="pan"> Pan Crust — $1.50</label>
+        <label class="inline"><input type="radio" name="crust" value="stuffed"> Stuffed Crust — $2.50</label>
+        <label class="inline"><input type="radio" name="crust" value="gluten-free"> Gluten-Free — $2.00</label>
+      </fieldset>
+
+      <!-- Pizza base sauces -->
+      <fieldset>
+        <legend>Pizza Base Sauce</legend>
+        <label class="inline"><input type="radio" name="sauce" value="tomato" required> Tomato Sauce — $0.00</label>
+        <label class="inline"><input type="radio" name="sauce" value="bbq"> BBQ Sauce — $0.00</label>
+        <label class="inline"><input type="radio" name="sauce" value="alfredo"> Alfredo Sauce — $0.00</label>
+      </fieldset>
+
+      <!-- Toppings -->
+      <fieldset>
+        <legend>Toppings <span class="muted">(priced per pizza)</span></legend>
+        <p class="hint">Meats $1.75 each · Veggies $1.25 each</p>
+        <p><strong>Meats</strong></p>
+        <label class="inline"><input type="checkbox" name="toppings" value="ham"> Ham — $1.75</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="beef-crumble"> Beef Crumble — $1.75</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="pork-crumble"> Pork Crumble — $1.75</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="sliced-bacon"> Sliced Bacon — $1.75</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="bacon-crumble"> Bacon Crumble — $1.75</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="cup-crispy-pepperoni"> Cup & Crispy Pepperoni — $1.75</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="pepperoni"> Pepperoni — $1.75</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="sausage"> Sausage — $1.75</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="chicken"> Chicken — $1.75</label>
+        <p><strong>Veggies & More</strong></p>
+        <label class="inline"><input type="checkbox" name="toppings" value="red-pepper"> Red Pepper — $1.25</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="green-pepper"> Green Pepper — $1.25</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="red-onion"> Red Onion — $1.25</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="black-olives"> Black Olives — $1.25</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="green-olives"> Green Olives — $1.25</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="jalapenos"> Jalapenos — $1.25</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="hot-peppers"> Hot Peppers — $1.25</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="mushrooms"> Mushrooms — $1.25</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="pineapple"> Pineapple — $1.25</label>
+        <label class="inline"><input type="checkbox" name="toppings" value="tomato"> Tomato — $1.25</label>
+      </fieldset>
+
+      <!-- Wings -->
+      <fieldset>
+        <legend>Wings</legend>
+        <label class="inline">8 — $9.99 <input type="number" name="wings_bone8" min="0" max="10" value="0"></label>
+        <label class="inline">14 — $15.99 <input type="number" name="wings_bone14" min="0" max="10" value="0"></label>
+        <label class="inline">22 — $23.99 <input type="number" name="wings_bone22" min="0" max="10" value="0"></label>
+        <p><strong>Sauces</strong></p>
+        <label class="inline"><input type="checkbox" name="sauce_type" value="honey-garlic"> Honey Garlic — $0.50</label>
+        <label class="inline"><input type="checkbox" name="sauce_type" value="bbq"> Honey BBQ — $0.50</label>
+        <label class="inline"><input type="checkbox" name="sauce_type" value="buffalo"> Buffalo — $0.50</label>
+        <label class="inline"><input type="checkbox" name="sauce_type" value="garlic-parmesan"> Garlic Parmesan — $0.50</label>
+      </fieldset>
+
+      <!-- Pastas -->
+      <fieldset>
+        <legend>Pastas</legend>
+        <label class="inline"><input type="checkbox" name="pasta" value="chicken-alfredo"> Chicken Alfredo — $12.99</label>
+        <label class="inline"><input type="checkbox" name="pasta" value="mac-cheese"> Mac and Cheese — $9.99</label>
+        <label>Quantity <input type="number" name="pasta_qty" min="0" max="10" value="0"></label>
+      </fieldset>
+
+      <!-- Sides -->
+      <fieldset>
+        <legend>Sides</legend>
+        <label class="inline"><input type="checkbox" name="side" value="breadsticks"> Breadsticks (w/ or w/o cheese) — from $4.99</label>
+        <label class="inline"><input type="checkbox" name="side" value="waffle-fries"> Waffle Fries (S $3.99 / L $5.99)</label>
+        <label class="inline"><input type="checkbox" name="side" value="mozzarella-sticks"> Mozzarella Sticks (S $6.99 / L $9.99)</label>
+        <label class="inline"><input type="checkbox" name="side" value="garlic-bread"> Garlic Bread (S $3.49 / L $5.49)</label>
+        <p><strong>Dips</strong></p>
+        <label class="inline"><input type="checkbox" name="dip" value="creamy-garlic"> Creamy Garlic</label>
+        <label class="inline"><input type="checkbox" name="dip" value="ranch"> Ranch</label>
+        <label class="inline"><input type="checkbox" name="dip" value="cheddar-jalapeno"> Cheddar Jalapeño</label>
+        <label class="inline"><input type="checkbox" name="dip" value="blue-cheese"> Blue Cheese</label>
+        <label class="inline"><input type="checkbox" name="dip" value="marinara"> Marinara</label>
+      </fieldset>
+
+      <!-- Desserts -->
+      <fieldset>
+        <legend>Desserts</legend>
+        <label class="inline"><input type="checkbox" name="dessert" value="cookie"> Cookie — $1.99</label>
+        <label class="inline"><input type="checkbox" name="dessert" value="brownie"> Brownie — $2.49</label>
+        <label class="inline"><input type="checkbox" name="dessert" value="cinnabon"> Cinnabon — $4.99</label>
+        <label class="inline"><input type="checkbox" name="dessert" value="ice-cream"> Ice Cream — $3.99</label>
+        <label>Quantity <input type="number" name="dessert_qty" min="0" max="10" value="0"></label>
+      </fieldset>
+
+      <!-- Drinks -->
+      <fieldset>
+        <legend>Drinks</legend>
+        <label class="inline"><input type="checkbox" name="drink" value="pepsi"> Pepsi — $1.99</label>
+        <label class="inline"><input type="checkbox" name="drink" value="diet-pepsi"> Diet Pepsi — $1.99</label>
+        <label class="inline"><input type="checkbox" name="drink" value="mug"> Mug Root Beer — $1.99</label>
+        <label class="inline"><input type="checkbox" name="drink" value="brisk"> Brisk — $1.99</label>
+        <label class="inline"><input type="checkbox" name="drink" value="7up"> 7UP — $1.99</label>
+        <label class="inline"><input type="checkbox" name="drink" value="rockstar"> Rockstar — $3.49</label>
+        <label class="inline"><input type="checkbox" name="drink" value="bubly"> Bubly — $1.79</label>
+        <label>Quantity <input type="number" name="drink_qty" min="0" max="10" value="0"></label>
+      </fieldset>
+
+      <!-- Pizza image before summary -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg" alt="Fresh baked pizza" />
+
+      <!-- Order Summary -->
+      <fieldset>
+        <legend>Order Summary</legend>
+        <p class="hint">Review your selections before submitting.</p>
+        <textarea id="orderSummary" name="order_summary" placeholder="Summarize your order with quantities and prices"></textarea>
+        <label class="inline"><input type="checkbox" name="confirm_review" value="yes"> I reviewed my choices and they look correct.</label>
+      </fieldset>
+
+      <div class="actions">
+        <input type="submit" value="Place Order" />
+        <input type="reset" value="Reset Form" />
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> The HTML Pizza Company • For class use only</p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
